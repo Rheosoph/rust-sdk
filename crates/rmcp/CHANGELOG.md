@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.8.1](https://github.com/modelcontextprotocol/rust-sdk/compare/rmcp-v3.8.0...rmcp-v3.8.1) - 2026-10-28
+
+### Fixed
+
+- *(transport)* preserve protocol error replies across cancellation ([#1370](https://github.com/modelcontextprotocol/rust-sdk/pull/1370))
+
 ## [3.8.0](https://github.com/modelcontextprotocol/rust-sdk/compare/rmcp-v3.7.0...rmcp-v3.8.0) - 2026-10-23
 
 ### Added
