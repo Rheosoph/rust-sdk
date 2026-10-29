@@ -1074,11 +1074,6 @@ where
                     }
                 }
             } else {
-                let (session_id, transport) = self
-                    .session_manager
-                    .create_session()
-                    .await
-                    .map_err(internal_error_response("create session"))?;
                 // Capture init params for external store persistence before
                 // extensions are injected (which would require Clone).
                 let stored_init_params = if self.config.session_store.is_some() {
@@ -1106,6 +1101,12 @@ where
                 let service = self
                     .get_service()
                     .map_err(internal_error_response("get service"))?;
+                // Allocate only after validation and service creation can no longer fail.
+                let (session_id, transport) = self
+                    .session_manager
+                    .create_session()
+                    .await
+                    .map_err(internal_error_response("create session"))?;
                 // spawn a task to serve the session
                 Self::spawn_session_worker(
                     self.session_manager.clone(),

@@ -361,3 +361,8 @@ required-features = [
   "transport-streamable-http-client-reqwest",
 ]
 path = "tests/test_streamable_http_connection_reuse.rs"
+
+[[test]]
+name = "test_streamable_http_session_allocation"
+required-features = ["server", "client", "transport-streamable-http-server", "reqwest"]
+path = "tests/test_streamable_http_session_allocation.rs"
